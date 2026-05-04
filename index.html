@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Abdullah Khlaileh | Full-Stack Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Abdullah Khlaileh — full-stack developer specializing in responsive front-end, ASP.NET MVC, C#, SQL Server, and modern web experiences. Based in Amman, Jordan.">
+    <meta name="theme-color" content="#1F1F1F">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            <p class="logo-title js-logo-wrap"><span class="js-logo-main">Abdullah</span><span class="logo-hyphen">-</span><span class="js-logo-accent">Kh</span></p>
+        </div>
+        <nav class="nav-desktop" aria-label="Primary">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="media">
+            <a class="js-social-header" data-social="facebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+            <a class="js-social-header" data-social="instagram" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-square-instagram" aria-hidden="true"></i></a>
+            <a class="messenger-link js-social-header" data-social="messenger" href="#" target="_blank" rel="noopener noreferrer" aria-label="Messenger"><i class="fa-brands fa-facebook-messenger" aria-hidden="true"></i></a>
+            <button type="button" class="menu-toggle" id="bars" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+        </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar" aria-label="Mobile navigation">
+        <button type="button" class="sidebar-close" id="fa-xmark" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <ul>
+            <li class="nav_link"><a href="#hero" class="home-link">Home</a></li>
+            <li class="nav_link"><a href="#about">About</a></li>
+            <li class="nav_link"><a href="#skills">Services</a></li>
+            <li class="nav_link"><a href="#projects">Projects</a></li>
+            <li class="nav_link"><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero section-padding fade-on" id="hero">
+            <div class="hero-left">
+                <p class="hello">Hello, I'm</p>
+                <h1 class="js-hero-name">Abdullah Khlaileh</h1>
+                <h2>And I'm a <span class="js-hero-title">Full-Stack Developer</span></h2>
+                <div class="hero-intro">
+                    <p class="js-hero-intro"></p>
+                </div>
+                <div class="hero-stack">
+                    <p class="js-hero-stack"></p>
+                </div>
+                <div class="hero-cta-row">
+                    <a href="#about" class="about-me-button">About Me</a>
+                    <a href="#" class="cv-download-button js-cv-download" target="_blank" rel="noopener noreferrer" download style="display:none"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Download CV</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="imges/newA1.PNG" alt="" class="hero-photo js-hero-photo" width="330" height="330" fetchpriority="high" decoding="async">
+            </div>
+        </section>
+
+        <section class="about section-padding fade-on" id="about">
+            <div class="about-photo-wrap">
+                <img src="imges/newA2.PNG" alt="" class="about-photo js-about-photo" width="320" height="320" loading="lazy" decoding="async">
+            </div>
+            <div class="about-copy">
+                <h2>About <span>Me</span></h2>
+                <p class="about-role js-about-role">Full-Stack Developer</p>
+                <div class="js-about-body">
+                    <p>With over a year and a half of hands-on experience in front-end development, I have built strong expertise in crafting responsive, structured, and user-centered web interfaces. My work reflects a deep understanding of page architecture, layout composition, and seamless adaptability across all screen sizes — from large displays to mobile devices. I specialize in developing dynamic and interactive web pages using modern JavaScript, along with HTML, CSS, Bootstrap, and advanced design principles. I have completed over 14 professional front-end projects.</p>
+                    <p>In addition to my front-end expertise, I have completed a .NET back-end development course and worked on several practical projects applying C#, OOP principles, SQL Server, Entity Framework, LINQ, and MVC architecture. I gained hands-on experience in building back-end logic, database-driven applications, and implementing clean, maintainable code, supporting my transition toward a full-stack development role.</p>
+                </div>
+                <a href="#skills" class="cta-button">See More</a>
+            </div>
+        </section>
+
+        <section class="skills section-padding fade-on" id="skills">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="skills-grid" id="skills-root"></div>
+        </section>
+
+        <section class="projects section-padding" id="projects">
+            <h2 class="title section-title">My <span>Professional</span> Projects</h2>
+            <div class="projects-list" id="projects-root"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-section contact-info">
+                <h3>Get In Touch</h3>
+                <p class="js-footer-tagline">Let's work together to bring your ideas to life!</p>
+                <div class="contact-details">
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a class="js-footer-email" href="mailto:"></a></p>
+                    <p><i class="fas fa-phone" aria-hidden="true"></i> <a class="js-footer-phone" href="tel:"></a></p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <span class="js-footer-location"></span></p>
+                </div>
+            </div>
+
+            <div class="footer-section quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section services">
+                <h3>Services</h3>
+                <ul id="footer-services-root"></ul>
+            </div>
+
+            <div class="footer-section social-media">
+                <h3>Follow Me</h3>
+                <div class="social-icons">
+                    <a class="js-social-footer" data-social="github" href="#" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a class="js-social-footer" data-social="linkedin" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    <a class="js-social-footer" data-social="twitter" href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                    <a class="js-social-footer" data-social="instagram" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a class="js-social-footer" data-social="codepen" href="#" aria-label="CodePen"><i class="fab fa-codepen" aria-hidden="true"></i></a>
+                </div>
+                <p class="newsletter-text">Subscribe for updates (coming soon)</p>
+                <form class="newsletter-form" action="#" method="post">
+                    <label class="visually-hidden" for="newsletter-email">Email address</label>
+                    <input id="newsletter-email" name="email" type="email" placeholder="Your email address" autocomplete="email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p><span class="js-footer-copy-year">&copy; 2026</span> <span class="js-footer-name">Abdullah Khlaileh</span>. All rights reserved.</p>
+            <p>Designed and developed with care by <span class="js-footer-name">Abdullah Khlaileh</span></p>
+        </div>
+    </footer>
+
+    <script src="portfolio-model.js"></script>
+    <script src="theme-presets.js"></script>
+    <script src="supabase-config.js"></script>
+    <script src="supabase-api.js"></script>
+    <script src="main.js" defer></script>
+</body>
+</html>

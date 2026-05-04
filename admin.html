@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit portfolio</title>
+  <meta name="theme-color" content="#1F1F1F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-mode locked">
+  <div class="lock-screen" id="lock-screen">
+    <div class="lock-card">
+      <h1>تعديل المحتوى</h1>
+      <p>أدخل كلمة مرور لوحة التحكم</p>
+      <div class="lock-error" id="lock-error" role="status"></div>
+      <label class="visually-hidden" for="lock-password">Password</label>
+      <input type="password" id="lock-password" autocomplete="off" placeholder="Password">
+      <button type="button" class="dash-save" id="lock-submit" style="width:100%; padding:13px 10px; border:none;border-radius: 12px;">دخول</button>
+    </div>
+  </div>
+
+  <div id="dash-app">
+    <header class="dash-main-header">
+      <div class="dash-header-primary">
+        <div class="logo">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          <p class="logo-title js-logo-wrap">
+            <input class="dash-field dash-logo" data-path="logoMain" placeholder="اسم أول" title="Logo left">
+            <span class="logo-hyphen">-</span>
+            <input class="dash-field dash-logo" data-path="logoAccent" placeholder="اختصار" title="Logo right">
+          </p>
+        </div>
+        <nav class="nav-desktop" aria-label="Primary">
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#footer">Contact</a></li>
+          </ul>
+        </nav>
+        <button type="button" class="menu-toggle" id="bars" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <div class="media dash-header-socials">
+        <div class="dash-soc-row">
+          <a class="js-dash-href-fb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <input type="url" class="dash-field dash-header-url" data-path="header.facebook" placeholder="Facebook URL" title="رابط فيسبوك">
+        </div>
+        <div class="dash-soc-row">
+          <a class="js-dash-href-ig" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+          <input type="url" class="dash-field dash-header-url" data-path="header.instagram" placeholder="Instagram URL" title="رابط إنستغرام">
+        </div>
+        <div class="dash-soc-row">
+          <a class="js-dash-href-me" href="#" target="_blank" rel="noopener noreferrer" aria-label="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+          <input type="url" class="dash-field dash-header-url" data-path="header.messenger" placeholder="Messenger URL" title="رابط ماسنجر">
+        </div>
+      </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar" aria-label="Mobile navigation">
+      <button type="button" class="sidebar-close" id="fa-xmark" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+      <ul>
+        <li class="nav_link"><a href="#hero" class="home-link">Home</a></li>
+        <li class="nav_link"><a href="#about">About</a></li>
+        <li class="nav_link"><a href="#skills">Services</a></li>
+        <li class="nav_link"><a href="#projects">Projects</a></li>
+        <li class="nav_link"><a href="#footer">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero section-padding fade-on show" id="hero">
+        <div class="hero-left">
+          <p class="dash-hint" style="margin-top:0">لون الموقع — يُطبَّق على الموقع العام والمعاينة هنا بعد الاختيار</p>
+          <div class="dash-theme-picker" id="dash-theme-picker" role="group" aria-label="لون الموقع">
+            <button type="button" class="dash-theme-swatch" data-theme-id="lime" style="--dash-swatch:#c9f31d" title="لايم" aria-label="ثيم لايم"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="cyan" style="--dash-swatch:#22d3ee" title="سماوي" aria-label="ثيم سماوي"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="violet" style="--dash-swatch:#a78bfa" title="بنفسجي" aria-label="ثيم بنفسجي"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="rose" style="--dash-swatch:#fb7185" title="وردي" aria-label="ثيم وردي"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="amber" style="--dash-swatch:#fbbf24" title="كهرماني" aria-label="ثيم كهرماني"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="emerald" style="--dash-swatch:#34d399" title="زمردي" aria-label="ثيم زمردي"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="sky" style="--dash-swatch:#38bdf8" title="أزرق سماوي" aria-label="ثيم أزرق سماوي"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="fuchsia" style="--dash-swatch:#e879f9" title="فوشيا" aria-label="ثيم فوشيا"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="orange" style="--dash-swatch:#fb923c" title="برتقالي" aria-label="ثيم برتقالي"></button>
+            <button type="button" class="dash-theme-swatch" data-theme-id="mint" style="--dash-swatch:#5eead4" title="نعناع" aria-label="ثيم نعناع"></button>
+          </div>
+          <input type="hidden" data-path="theme" id="dash-theme-input" value="lime" autocomplete="off">
+          <p class="hello">Hello, I'm</p>
+          <input class="dash-field dash-hero-name" data-path="name" type="text" placeholder="الاسم الكامل">
+          <h2 style="margin:8px 0;font-size:1.7rem;font-weight:500">And I'm a <span><input class="dash-field dash-inline-title" data-path="title" type="text" placeholder="المسمى"></span></h2>
+          <p class="dash-hint">مقدمة الهيرو</p>
+          <textarea class="dash-field" data-path="heroIntro" rows="3" placeholder="فقرة الهيرو الأولى"></textarea>
+          <p class="dash-hint">تقنيات / سطر ثاني</p>
+          <textarea class="dash-field" data-path="heroStack" rows="3" placeholder="فقرة الهيرو الثانية"></textarea>
+          <p class="dash-hint">السيرة الذاتية (PDF أو Word) — نفس رفع الصور مع npm run dev أو Supabase</p>
+          <div class="dash-cv-row">
+            <input class="dash-field" data-path="cvUrl" placeholder="upload/… أو رابط كامل">
+            <input type="file" id="dash-file-cv" class="visually-hidden" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            <button type="button" class="dash-img-btn" id="dash-pick-cv">اختيار ملف CV</button>
+          </div>
+          <div class="hero-cta-row dash-hero-cta-row">
+            <a href="#about" class="about-me-button" tabindex="-1" style="pointer-events:none;opacity:0.85">About Me</a>
+            <a href="#" class="cv-download-button js-dash-cv-preview" tabindex="-1" style="display:none" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Download CV</a>
+          </div>
+        </div>
+        <div class="hero-right dash-img-row">
+          <img src="imges/newA1.PNG" alt="" class="hero-photo js-dash-hero-photo" width="330" height="330">
+          <input class="dash-field" data-path="heroImage" placeholder="مع npm run dev: upload/… — أو لصق مسار يدوياً" title="شغّل dev-server ثم اختر صورة">
+          <input type="file" id="dash-file-hero" class="visually-hidden" accept="image/*">
+          <button type="button" class="dash-img-btn" id="dash-pick-hero-img">اختيار صورة</button>
+        </div>
+      </section>
+
+      <section class="about section-padding fade-on show" id="about">
+        <div class="about-photo-wrap dash-img-row">
+          <img src="imges/newA2.PNG" alt="" class="about-photo js-dash-about-photo" width="320" height="320">
+          <input class="dash-field" data-path="aboutImage" placeholder="مع npm run dev: upload/… — أو لصق مسار يدوياً" title="شغّل dev-server ثم اختر صورة">
+          <input type="file" id="dash-file-about" class="visually-hidden" accept="image/*">
+          <button type="button" class="dash-img-btn" id="dash-pick-about-img">اختيار صورة</button>
+        </div>
+        <div class="about-copy">
+          <h2>About <span>Me</span></h2>
+          <p class="about-role" style="opacity:0.8">(يتبع حقل المسمى أعلاه)</p>
+          <p class="dash-hint">نص About — فقرة وفقرة بسطر فاضي بينهم</p>
+          <textarea class="dash-field" data-path="about" rows="10" placeholder="About text"></textarea>
+          <a href="#skills" class="cta-button" tabindex="-1" style="pointer-events:none;opacity:0.85">See More</a>
+        </div>
+      </section>
+
+      <section class="skills section-padding fade-on show" id="skills">
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <div class="skills-grid" id="dash-skills-root"></div>
+        <button type="button" class="dash-img-btn" id="dash-add-skill" style="margin-top:16px">+ إضافة مهارة</button>
+      </section>
+
+      <section class="projects section-padding fade-on show" id="projects">
+        <h2 class="title section-title">My <span>Professional</span> Projects</h2>
+        <div class="projects-list" id="dash-projects-root"></div>
+        <button type="button" class="dash-img-btn" id="dash-add-project" style="margin-top:16px">+ إضافة مشروع</button>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="footer">
+      <div class="footer-container">
+        <div class="footer-section contact-info">
+          <h3>Get In Touch</h3>
+          <input class="dash-field" data-path="footer.tagline" placeholder="Tagline">
+          <div class="contact-details" style="margin-top:12px">
+            <p><i class="fas fa-envelope"></i> <input class="dash-field" data-path="footer.email" placeholder="Email"></p>
+            <p><i class="fas fa-phone"></i> <input class="dash-field" data-path="footer.phone" placeholder="Phone"></p>
+            <p><i class="fas fa-map-marker-alt"></i> <input class="dash-field" data-path="footer.location" placeholder="Location"></p>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Footer URLs</h3>
+          <p class="dash-hint">روابط الهيدر (فيسبوك / إنستا / ماسنجر) تُعدَّل من حقول بجانب الأيقونات أعلى الصفحة.</p>
+          <p class="dash-hint" style="margin-top:10px">سوشال التذييل</p>
+          <input class="dash-field" data-path="footer.social.github" placeholder="GitHub URL">
+          <input class="dash-field" data-path="footer.social.linkedin" placeholder="LinkedIn URL">
+          <input class="dash-field" data-path="footer.social.twitter" placeholder="Twitter URL">
+          <input class="dash-field" data-path="footer.social.instagram" placeholder="Instagram URL">
+          <input class="dash-field" data-path="footer.social.codepen" placeholder="CodePen URL">
+          <p class="dash-hint" style="margin-top:10px">سنة حقوق النشر (رقم)</p>
+          <input class="dash-field" data-path="footer.copyrightYear" placeholder="2026">
+        </div>
+        <div class="footer-section services">
+          <h3>Services (footer)</h3>
+          <p class="dash-hint">سطر لكل خدمة</p>
+          <textarea id="dash-footer-services-lines" class="dash-field" rows="6" placeholder="Responsive Web Design"></textarea>
+        </div>
+        <div class="footer-section quick-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#footer">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>معاينة التذييل — الاسم يُحدَّث من حقل الاسم في الهيرو</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="dash-toolbar" id="dash-toolbar">
+    <input type="password" id="dash-secret" placeholder="سر الحفظ (Supabase)" autocomplete="off">
+    <button type="button" class="btn dash-save" id="dash-save">حفظ</button>
+    <a class="btn dash-link" href="index.html">عرض الموقع</a>
+  </div>
+
+  <div id="dash-toast" class="dash-toast" role="status"></div>
+
+  <style>
+    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+
+  <script src="portfolio-model.js"></script>
+  <script src="theme-presets.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-api.js"></script>
+  <script src="upload-local-config.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

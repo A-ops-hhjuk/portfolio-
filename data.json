@@ -1,0 +1,158 @@
+{
+  "theme": "lime",
+  "name": "Abdullah Khlaileh",
+  "title": "Full-Stack Developer",
+  "heroIntro": "HTML, CSS, JavaScript, Bootstrap, responsive design, Flexbox, Grid, jQuery, UI/UX, modern layouts, cross-browser compatibility, performance, and interactive interfaces.",
+  "heroStack": "C#, .NET, ASP.NET MVC, Entity Framework, LINQ, SQL Server, database design, repository pattern, CRUD, authentication and authorization, MVC architecture, validation, and error handling.",
+  "heroImage": "imges/newA1.PNG",
+  "aboutImage": "imges/newA2.PNG",
+  "logoMain": "",
+  "logoAccent": "",
+  "cvUrl": "",
+  "header": {
+    "facebook": "https://www.facebook.com/share/17mPUXtQaK/",
+    "instagram": "https://www.instagram.com/abdallahkhlileh?igsh=Z3Q3MHU3NXhndW1i",
+    "messenger": "https://m.me/abdullah.klayla.9"
+  },
+  "footer": {
+    "tagline": "Let's work together to bring your ideas to life!",
+    "email": "abdullah@example.com",
+    "phone": "0796885276",
+    "location": "Amman, Jordan",
+    "copyrightYear": "2026",
+    "social": {
+      "github": "",
+      "linkedin": "",
+      "twitter": "",
+      "instagram": "https://www.instagram.com/abdallahkhlileh",
+      "codepen": ""
+    }
+  },
+  "about": "With over a year and a half of hands-on experience in front-end development, I have built strong expertise in crafting responsive, structured, and user-centered web interfaces. My work reflects a deep understanding of page architecture, layout composition, and seamless adaptability across all screen sizes — from large displays to mobile devices. I specialize in developing dynamic and interactive web pages using modern JavaScript, along with HTML, CSS, Bootstrap, and advanced design principles. I have completed over 14 professional front-end projects.\n\nIn addition to my front-end expertise, I have completed a .NET back-end development course and worked on several practical projects applying C#, OOP principles, SQL Server, Entity Framework, LINQ, and MVC architecture. I gained hands-on experience in building back-end logic, database-driven applications, and implementing clean, maintainable code, supporting my transition toward a full-stack development role.",
+  "skills": [
+    {
+      "title": "UI/UX Design and Development",
+      "description": "Transforming ideas into visually appealing and user-friendly interfaces, with a focus on seamless user experience and easy navigation. Utilizing the latest technologies to ensure responsive, fast websites across all devices, while adhering to best practices in color schemes."
+    },
+    {
+      "title": "Figma/PSD to Interactive Websites",
+      "description": "Converting Figma or Photoshop designs into fully functional, responsive websites. Ensuring compatibility across browsers and devices, while writing clean, maintainable code that guarantees high performance and long-term reliability."
+    },
+    {
+      "title": "Template & Code Optimization",
+      "description": "Providing professional solutions for improving pre-built templates and existing websites, including code cleaning, bug fixing, and performance enhancement. This service ensures websites are more efficient, organized, and compliant with modern technical standards."
+    },
+    {
+      "title": "Backend Architecture & Business Logic",
+      "description": "Developing structured and scalable server-side applications using C# and ASP.NET MVC, with a strong focus on clean architecture and separation of concerns. Designing and implementing business logic that supports real-world workflows, while applying MVC architecture and Repository Pattern to ensure maintainable code."
+    },
+    {
+      "title": "Database Design & Data Management",
+      "description": "Designing and managing relational databases using SQL Server, including defining tables, relationships, and constraints to ensure data consistency. Implementing efficient CRUD operations using Entity Framework and LINQ, optimizing queries, and handling data transactions securely."
+    },
+    {
+      "title": "Authentication, Authorization & Validation",
+      "description": "Implementing secure authentication and authorization systems to manage user access, roles, and permissions within web applications. Applying server-side data validation, exception handling, and security best practices to protect against common vulnerabilities."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Patriarchate Orthodox School Website",
+      "description": "A modern and responsive website developed for the Patriarchate Orthodox School. The project focuses on delivering a clean design, structured content presentation, and an intuitive user experience for students, parents, and staff. Built using HTML, CSS, and JavaScript with attention to performance and accessibility.",
+      "link": "https://a-ops-hhjuk.github.io/test-school/",
+      "badge": "Client Project",
+      "image": "imges/school.jpg"
+    },
+    {
+      "title": "Agridaleel Website Concept",
+      "description": "A web project inspired by the Jordanian platform Agridaleel, created as a practice project to enhance my web development skills. It features a responsive layout and clean design using HTML, CSS, and JavaScript.",
+      "link": "",
+      "badge": "Practice Project",
+      "image": "imges/ArgIdaleel.jpg"
+    },
+    {
+      "title": "Asmida Website",
+      "description": "A web project inspired by the Jordanian platform Asmida, created as a practice project to enhance my web development skills. It features a responsive layout and clean design using HTML, CSS, and JavaScript.",
+      "link": "",
+      "badge": "Practice Project",
+      "image": "imges/Asmida.jpg"
+    },
+    {
+      "title": "Al Jazeera News Website",
+      "description": "A non-official practice project inspired by Al Jazeera’s news platform. I created this website to improve my front-end development skills and explore responsive layouts, news sections, and dynamic design elements. Note: This is not an official website.",
+      "link": "",
+      "badge": "Practice Project",
+      "image": "imges/news.jpg"
+    },
+    {
+      "title": "Dead Sea Tourism Website",
+      "description": "A non-official practice project designed to showcase beautiful destinations and tourist attractions around the Dead Sea in Jordan. Built using HTML, CSS, and JavaScript with a responsive layout and modern design.",
+      "link": "",
+      "badge": "Tourism Project",
+      "image": "imges/deadsea.jpg"
+    },
+    {
+      "title": "Coffee Shop Online Store",
+      "description": "A coffee store featuring premium Jordanian and international coffee brands such as Al Ameed Coffee and others. Designed with a modern responsive layout to enhance the shopping experience.",
+      "link": "",
+      "badge": "E-Commerce Project",
+      "image": "imges/coffee.jpg"
+    },
+    {
+      "title": "Foreign Books Online Store",
+      "description": "An online bookstore offering a wide range of international and English books. Designed with a clean and responsive interface to provide an easy and enjoyable shopping experience.",
+      "link": "",
+      "badge": "E-Commerce Project",
+      "image": "imges/bookshop.jpg"
+    },
+    {
+      "title": "Online Barber Booking",
+      "description": "A non-official practice project created to simplify the process of booking barbers online and save customers’ time. The system allows users to schedule appointments easily and manage bookings efficiently.",
+      "link": "",
+      "badge": "Online booking",
+      "image": "imges/ShavingTime.jpg"
+    },
+    {
+      "title": "Node.js Home Page",
+      "description": "A non-official practice project inspired by the official Node.js website. I recreated the home page design to improve my front-end development and layout structuring skills using HTML, CSS, and JavaScript.",
+      "link": "",
+      "badge": "Practice Project",
+      "image": "imges/NodeJs.jpg"
+    },
+    {
+      "title": "E-Fawateercom Website",
+      "description": "An unofficial practice project inspired by the design and functionality of E-Fawateercom. This website was created for learning and skill development purposes, focusing on UI/UX design and front-end implementation.",
+      "link": "",
+      "badge": "Practice Project",
+      "image": "imges/mdfoaatkom.jpg"
+    },
+    {
+      "title": "Takreem – Perfume Store",
+      "description": "Takreem is a practice perfume e-commerce website showcasing a collection of high-quality fragrances. It was designed and developed for learning and practice purposes, focusing on enhancing web design and development skills.",
+      "link": "",
+      "badge": "Practice Project",
+      "image": "imges/takreem.jpg"
+    },
+    {
+      "title": "Personal Portfolio Website",
+      "description": "A personal portfolio website designed and developed for a client applying for a job abroad. The goal of the project was to create a professional online presence that highlights the client’s skills, experience, and achievements in a clean and modern design.",
+      "link": "",
+      "badge": "Portfolio Project",
+      "image": "imges/Ahmad.jpg"
+    },
+    {
+      "title": "My Previous Portfolio",
+      "description": "This was my first personal portfolio website, created at the beginning of my web design journey. It showcased some of my early skills, including layout design, responsive web development, and basic UI/UX principles.",
+      "link": "",
+      "badge": "Portfolio Project",
+      "image": "imges/Abood.jpg"
+    },
+    {
+      "title": "Eid Al-Adha Greeting Page",
+      "description": "A simple and creative greeting page designed for Eid Al-Adha to share festive wishes with friends and family. This small project was created for practice and personal use, focusing on clean design and warm holiday aesthetics.",
+      "link": "",
+      "badge": "Simple Project",
+      "image": "imges/Eid.jpg"
+    }
+  ]
+}
