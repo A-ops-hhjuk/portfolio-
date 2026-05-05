@@ -568,18 +568,6 @@
     }, delay);
   }
 
-  async function loadDataJsonIntoState() {
-    try {
-      var res0 = await fetch("data.json", { cache: "no-cache" });
-      if (!res0.ok) return false;
-      state = PM.normalize(await res0.json());
-      PM.persistLocal(state);
-      return true;
-    } catch (e0) {
-      return false;
-    }
-  }
-
   async function loadAll() {
     var localRaw = PM.readLocal();
     var usedLocal =
@@ -589,11 +577,11 @@
     if (usedLocal) {
       state = PM.normalize(localRaw);
     } else {
-      await loadDataJsonIntoState();
+      state = PM.normalize({});
     }
     fillFromState();
     var cfg = window.PORTFOLIO_SUPABASE;
-    if (!usedLocal && window.PortfolioSupabase && PortfolioSupabase.isConfigured(cfg)) {
+    if (window.PortfolioSupabase && PortfolioSupabase.isConfigured(cfg)) {
       try {
         var cloud = await PortfolioSupabase.readPortfolio(cfg);
         if (cloud && typeof cloud === "object") {
@@ -608,15 +596,9 @@
         console.warn(e);
       }
     }
-    if (!PM.hasMeaningfulContent(state)) {
-      if (!usedLocal) {
-        await loadDataJsonIntoState();
-        fillFromState();
-      }
-      if (!PM.hasMeaningfulContent(state)) {
-        state = PM.normalize({});
-        fillFromState();
-      }
+    if (!usedLocal && !PM.hasMeaningfulContent(state)) {
+      state = PM.normalize({});
+      fillFromState();
     }
   }
 
