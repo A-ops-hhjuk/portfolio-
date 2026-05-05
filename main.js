@@ -42,7 +42,7 @@
 
     /**
      * مع Supabase: نقرأ السحابة أولاً (آخر حفظ يظهر على كل الأجهزة).
-     * بدون Supabase: النسخة المحلية أولاً ثم data.json — كما كان.
+     * بدون Supabase: النسخة المحلية أولاً.
      */
     if (supabaseOn && PM) {
       try {
@@ -62,18 +62,6 @@
     if (useLocal) {
       return PM.normalize(raw);
     }
-
-    var n4 = null;
-    try {
-      var res = await fetch("data.json", { cache: "no-cache" });
-      if (res.ok) {
-        n4 = PM.normalize(await res.json());
-        if (PM) PM.persistLocal(n4);
-      }
-    } catch (e) {
-      console.warn("data.json:", e);
-    }
-    if (n4) return n4;
     return PM.normalize({});
   }
 
