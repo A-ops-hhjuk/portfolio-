@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var ADMIN_PASSWORD = "1234";
+  var ADMIN_PASSWORD = "qwer56";
   var SESSION_SECRET_KEY = "portfolioSaveSecret";
   var PM = window.PortfolioModel;
 
@@ -26,6 +26,32 @@
       cur = cur[k];
     }
     cur[parts[parts.length - 1]] = val;
+  }
+
+  function bindImageLoading(img, wrap) {
+    if (!img || !wrap) return;
+    wrap.classList.add("image-loading-wrap");
+    if (!img.complete) {
+      wrap.classList.add("is-loading");
+    }
+    img.addEventListener("load", function () {
+      wrap.classList.remove("is-loading");
+    });
+    img.addEventListener("error", function () {
+      wrap.classList.remove("is-loading");
+    });
+  }
+
+  function setImageWithLoader(img, wrap, src) {
+    if (!img || !src) return;
+    if (wrap) {
+      wrap.classList.add("image-loading-wrap");
+      wrap.classList.add("is-loading");
+    }
+    img.src = src;
+    if (wrap && img.complete) {
+      wrap.classList.remove("is-loading");
+    }
   }
 
   function escAttr(s) {
@@ -114,8 +140,49 @@
     );
   }
 
+  function getDashUploadWrap(previewEl, pathInput) {
+    if (previewEl && previewEl.closest) {
+      var w = previewEl.closest(".dash-img-row");
+      if (w) return w;
+    }
+    if (pathInput && pathInput.closest) {
+      return pathInput.closest(".dash-img-row");
+    }
+    return null;
+  }
+
+  function setDashRowUploadLoading(wrap, on) {
+    if (!wrap) return;
+    wrap.classList.add("image-loading-wrap");
+    wrap.classList.toggle("is-loading", !!on);
+    if (on) {
+      wrap.setAttribute("aria-busy", "true");
+    } else {
+      wrap.removeAttribute("aria-busy");
+    }
+  }
+
   async function applyChosenImage(file, pathInput, previewEl, statePath) {
     if (!file || !pathInput) return false;
+    var uploadWrap = getDashUploadWrap(previewEl, pathInput);
+    setDashRowUploadLoading(uploadWrap, true);
+    try {
+      return await applyChosenImageBody(
+        file,
+        pathInput,
+        previewEl,
+        statePath,
+        uploadWrap
+      );
+    } catch (e) {
+      console.warn(e);
+      showToast("حدث خطأ أثناء رفع الصورة. حاول مرة أخرى.", false);
+      setDashRowUploadLoading(uploadWrap, false);
+      return false;
+    }
+  }
+
+  async function applyChosenImageBody(file, pathInput, previewEl, statePath, uploadWrap) {
     var cfg = window.PORTFOLIO_SUPABASE || {};
     var skipUpload = cfg.skipStorageUpload === true;
     var finalUrl = null;
@@ -140,6 +207,7 @@
         cloudErrMsg = (err && err.message) || "";
         if (!isBucketMissingUploadError(cloudErrMsg)) {
           showToast("فشل الرفع للسحابة: " + cloudErrMsg, false);
+          setDashRowUploadLoading(uploadWrap, false);
           return false;
         }
       }
@@ -169,19 +237,23 @@
       }
     }
     pathInput.value = finalUrl;
+    var previewSrc = "";
     if (previewEl) {
       revokeImgBlob(previewEl);
       if (/^https?:\/\//i.test(finalUrl)) {
-        previewEl.src = finalUrl;
+        previewSrc = finalUrl;
       } else {
         var resolvedPreview = resolveDashboardAssetUrl(finalUrl);
         if (/^https?:\/\//i.test(resolvedPreview)) {
-          previewEl.src = resolvedPreview;
+          previewSrc = resolvedPreview;
         } else {
           previewEl._blobRevoke = URL.createObjectURL(file);
-          previewEl.src = previewEl._blobRevoke;
+          previewSrc = previewEl._blobRevoke;
         }
       }
+      setImageWithLoader(previewEl, uploadWrap, previewSrc);
+    } else if (uploadWrap) {
+      setDashRowUploadLoading(uploadWrap, false);
     }
     if (statePath) {
       setPath(state, statePath, finalUrl);
@@ -264,12 +336,13 @@
       el.value = v != null ? String(v) : "";
     });
     var heroImg = document.querySelector(".js-dash-hero-photo");
+    var heroWrap = heroImg ? heroImg.closest(".dash-img-row") : null;
     revokeImgBlob(heroImg);
-    if (heroImg && state.heroImage) heroImg.src = resolveDashboardAssetUrl(state.heroImage);
-    var aboutImg = document.querySelector(".js-dash-about-photo");
+    if (heroImg && state.heroImage) setImageWithLoader(heroImg, heroWrap, resolveDashboardAssetUrl(state.heroImage));    var aboutImg = document.querySelector(".js-dash-about-photo");
+        var aboutWrap = aboutImg ? aboutImg.closest(".dash-img-row") : null;
     revokeImgBlob(aboutImg);
-    if (aboutImg && state.aboutImage) aboutImg.src = resolveDashboardAssetUrl(state.aboutImage);
-    var fs = document.getElementById("dash-footer-services-lines");
+ if (aboutImg && state.aboutImage)
+      setImageWithLoader(aboutImg, aboutWrap, resolveDashboardAssetUrl(state.aboutImage));    var fs = document.getElementById("dash-footer-services-lines");
     if (fs && state.footer && state.footer.services) {
       fs.value = state.footer.services.join("\n");
     }
@@ -490,18 +563,22 @@
         im.loading = "lazy";
         im.decoding = "async";
         var u = pathIn.value;
+        var projSrc = "";
         if (/^https?:\/\//i.test(u)) {
-          im.src = u;
+          projSrc = u;
         } else {
           var rproj = resolveDashboardAssetUrl(u);
           if (/^https?:\/\//i.test(rproj)) {
-            im.src = rproj;
+            projSrc = rproj;
           } else {
             im._blobRevoke = URL.createObjectURL(file);
-            im.src = im._blobRevoke;
+            projSrc = im._blobRevoke;
           }
         }
+        var projWrap = pathIn.closest(".dash-img-row");
         ph.replaceWith(im);
+        setImageWithLoader(im, projWrap, projSrc);
+        bindImageLoading(im, projWrap);
       }
       persist();
       t.value = "";
@@ -514,6 +591,9 @@
         renderProjectsEditor();
         persist();
       };
+    });
+    root.querySelectorAll(".js-proj-preview").forEach(function (im) {
+      bindImageLoading(im, im.closest(".dash-img-row"));
     });
   }
 
@@ -663,15 +743,17 @@
           var im = document.querySelector(".js-dash-hero-photo");
           if (im) {
             revokeImgBlob(im);
-            im.src = resolveDashboardAssetUrl(el.value || "imges/newA1.PNG");
-          }
+ setImageWithLoader(im, im.closest(".dash-img-row"), resolveDashboardAssetUrl(el.value || "imges/newA1.PNG"));          }
         }
         if (p === "aboutImage") {
           var im2 = document.querySelector(".js-dash-about-photo");
           if (im2) {
             revokeImgBlob(im2);
-            im2.src = resolveDashboardAssetUrl(el.value || "imges/newA2.PNG");
-          }
+ setImageWithLoader(
+              im2,
+              im2.closest(".dash-img-row"),
+              resolveDashboardAssetUrl(el.value || "imges/newA2.PNG")
+            );          }
         }
         if (p.indexOf("header.") === 0) syncDashHeaderLinks();
         if (p === "cvUrl") syncDashCvPreview();
@@ -835,7 +917,8 @@
       });
     });
   }
-
+ bindImageLoading(document.querySelector(".js-dash-hero-photo"), document.querySelector(".js-dash-hero-photo") ? document.querySelector(".js-dash-hero-photo").closest(".dash-img-row") : null);
+  bindImageLoading(document.querySelector(".js-dash-about-photo"), document.querySelector(".js-dash-about-photo") ? document.querySelector(".js-dash-about-photo").closest(".dash-img-row") : null);
   boot();
   initLayoutChrome();
 })();
