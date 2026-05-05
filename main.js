@@ -29,6 +29,29 @@
     }
   }
 
+    function bindImageLoading(img, wrap) {
+    if (!img || !wrap) return;
+    wrap.classList.add("image-loading-wrap");
+    if (!img.complete) {
+      wrap.classList.add("is-loading");
+    }
+    img.addEventListener("load", function () {
+      wrap.classList.remove("is-loading");
+    });
+    img.addEventListener("error", function () {
+      wrap.classList.remove("is-loading");
+    });
+  }
+
+  function setImageWithLoader(img, wrap, src) {
+    if (!img || !wrap || !src) return;
+    wrap.classList.add("is-loading");
+    img.src = src;
+    if (img.complete) {
+      wrap.classList.remove("is-loading");
+    }
+  }
+
   async function loadPortfolioData() {
     var raw = PM ? PM.readLocal() : null;
     var useLocal =
@@ -142,10 +165,11 @@
     }
 
     var himg = document.querySelector(".js-hero-photo");
-    if (himg && d.heroImage) himg.src = d.heroImage;
+     var heroWrap = document.querySelector(".hero-right");
+    if (himg && d.heroImage) setImageWithLoader(himg, heroWrap, d.heroImage);
     var abimg = document.querySelector(".js-about-photo");
-    if (abimg && d.aboutImage) abimg.src = d.aboutImage;
-
+    var aboutWrap = document.querySelector(".about-photo-wrap");
+    if (abimg && d.aboutImage) setImageWithLoader(abimg, aboutWrap, d.aboutImage);
     var cvEl = document.querySelector(".js-cv-download");
     if (cvEl) {
       var cvPath = String(d.cvUrl != null ? d.cvUrl : "").trim();
@@ -329,6 +353,8 @@
   }
 
   async function boot() {
+    bindImageLoading(document.querySelector(".js-hero-photo"), document.querySelector(".hero-right"));
+    bindImageLoading(document.querySelector(".js-about-photo"), document.querySelector(".about-photo-wrap"));
     try {
       var data = await loadPortfolioData();
       applyPortfolio(data);
