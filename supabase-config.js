@@ -3,7 +3,7 @@
  *
  * anonKey = من Supabase → Settings → API → Project API keys → anon public
  * (مفتاح طويل يبلش بـ eyJ...) — إذا تركته فاضي "" الموقع ما بيتصل بـ Supabase أبداً
- * وبيقرأ من data.json بس، وزر Save بالأدمن ما بيحفظ بالسحابة.
+ * وزر Save بالأدمن ما بيحفظ بالسحابة (يبقى الحفظ محلياً على نفس الجهاز فقط).
  *
  * storageBucket = نفس اسم الـ bucket في Supabase → Storage (افتراضي portfolio-images).
  * لازم تنشئ الـ bucket من الواجهة أو SQL كما في SUPABASE_SETUP.sql القسم (3).
